@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
 public class activity_location extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,9 @@ public class activity_location extends AppCompatActivity {
 
         EditText locationField = findViewById(R.id.locationField);
         Button buttonGetLocation = findViewById(R.id.buttonGetLocation);
+
+        Intent getLanguage = getIntent();
+        String languageValue = getLanguage.getStringExtra("choosenLanguage");
 
         buttonGetLocation.setEnabled(false);
 
@@ -51,7 +56,6 @@ public class activity_location extends AppCompatActivity {
                 startActivity(intentToResult);
             }
         });
-
     }
 
 }

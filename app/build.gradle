@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -38,6 +39,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'info.androidhive:fontawesome:0.0.5'
+    implementation platform('com.google.firebase:firebase-bom:26.4.0')
 
 }
 

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class activity_location extends AppCompatActivity {
+public class LocationActivity extends AppCompatActivity {
 
 
     @Override
@@ -51,8 +51,9 @@ public class activity_location extends AppCompatActivity {
         buttonGetLocation.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 String getLocation = locationField.getText().toString();
-                Intent intentToResult = new Intent(activity_location.this, MainActivity.class);
-                intentToResult.putExtra("getLocation", getLocation);
+                Intent intentToResult = new Intent(LocationActivity.this, JobListActivity.class);
+                intentToResult.putExtra("location", getLocation);
+                intentToResult.putExtra("choosenLanguage", languageValue);
                 startActivity(intentToResult);
             }
         });

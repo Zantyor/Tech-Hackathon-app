@@ -27,8 +27,9 @@ import java.util.ArrayList;
 public class JobListActivity extends AppCompatActivity {
     String coco = "coco";
     //Valeur test
-    String language = "java";
-    String location = "new+york";
+    String language;
+    String location;
+
     ListView listView;
     JSONObject currentObject;
     ArrayList<String> arrayList = new ArrayList<String>();
@@ -39,6 +40,17 @@ public class JobListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_list);
+
+        Intent getLanguage = getIntent();
+        String languageValue = getLanguage.getStringExtra("choosenLanguage");
+        String locationValue = getLanguage.getStringExtra("location");
+
+        if (languageValue != null) {
+            language = languageValue;
+        }
+        if (locationValue != null) {
+            location = locationValue;
+        }
 
         listView = findViewById(R.id.resultList);
         getJobsList(language,location);

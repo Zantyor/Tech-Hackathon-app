@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-public class language extends AppCompatActivity {
+public class LanguageActivity extends AppCompatActivity {
     String choosenLanguage;
     Intent intent;
     @Override
@@ -20,7 +19,7 @@ public class language extends AppCompatActivity {
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioChoice);
 
         Button btnValidLanguage = findViewById(R.id.confirm);
-
+        btnValidLanguage.setEnabled(false);
         btnValidLanguage.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -46,17 +45,19 @@ public class language extends AppCompatActivity {
                         onLanguageSelection("php");
                         break;
                 }
+                btnValidLanguage.setEnabled(true);
             }
         });
-
-
     }
 
     public void onLanguageSelection(String language) {
         choosenLanguage = language;
-        intent = new Intent(language.this ,activity_location.class);
+        intent = new Intent(LanguageActivity.this , LocationActivity.class);
         intent.putExtra("choosenLanguage", choosenLanguage);
+
     }
+
+
 }
 
 

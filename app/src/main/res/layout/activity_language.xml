@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".language">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose your Language"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        android:gravity="center">
+
+    </TextView>
+
+    <RadioGroup
+        android:id="@+id/radioChoice"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/ruby"
+            android:layout_marginTop="120dp"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+
+            android:text="Ruby"
+            android:textSize="25dp"
+            />
+
+        <RadioButton
+            android:id="@+id/python"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+
+            android:text="Python"
+            android:textSize="25dp"/>
+
+        <RadioButton
+            android:id="@+id/php"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+
+            android:text="PHP"
+            android:textSize="25dp"/>
+
+        <RadioButton
+            android:id="@+id/javascript"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+
+            android:text="Javascript"
+            android:textSize="25dp"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_marginTop="100dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Confirmer" />
+
+
+
+</LinearLayout>
+

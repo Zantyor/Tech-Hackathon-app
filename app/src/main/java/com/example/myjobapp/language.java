@@ -11,12 +11,23 @@ import android.widget.RadioGroup;
 
 public class language extends AppCompatActivity {
     String choosenLanguage;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
 
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioChoice);
+
+        Button btnValidLanguage = findViewById(R.id.confirm);
+
+        btnValidLanguage.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
+            }
+        });
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
@@ -40,33 +51,12 @@ public class language extends AppCompatActivity {
 
 
     }
-    public void onLanguageSelection(String language){
-        Intent intent = new Intent(language.this,activity_location.class);
-        choosenLanguage = language ;
-        intent.putExtra("choosenLanguage",choosenLanguage);
-        startActivity(intent);
+
+    public void onLanguageSelection(String language) {
+        choosenLanguage = language;
+        intent = new Intent(language.this ,activity_location.class);
+        intent.putExtra("choosenLanguage", choosenLanguage);
     }
-  /*  public void onRadioButtonClick(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-        switch(view.getId()) {
-            case R.id.python:
-                if (checked)
-                    choosenLanguage = "python";
-                break;
-            case R.id.javascript:
-                if (checked)
-                    choosenLanguage = "javascript";
-                break;
-            case R.id.ruby:
-                if (checked)
-                    choosenLanguage = "ruby";
-                break;
-            case R.id.php:
-                if (checked)
-                    choosenLanguage = "php";
-                break;
-        }
-    }*/
 }
 
 

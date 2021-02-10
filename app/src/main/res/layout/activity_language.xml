@@ -6,16 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context=".language">
+    tools:context=".LanguageActivity">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose your Language"
-        android:textSize="42dp"
+        android:text="Choose your language:"
+        android:gravity="center"
+        android:textSize="25dp"
         android:textStyle="bold"
-        android:gravity="center">
-
-    </TextView>
+        android:padding="40dp"></TextView>
 
     <RadioGroup
         android:id="@+id/radioChoice"
@@ -31,7 +30,7 @@
             android:layout_gravity="center"
 
             android:text="Ruby"
-            android:textSize="25dp"
+            android:textSize="20dp"
             />
 
         <RadioButton
@@ -41,7 +40,7 @@
             android:layout_gravity="center"
 
             android:text="Python"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
 
         <RadioButton
             android:id="@+id/php"
@@ -50,7 +49,7 @@
             android:layout_gravity="center"
 
             android:text="PHP"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
 
         <RadioButton
             android:id="@+id/javascript"
@@ -59,17 +58,25 @@
             android:layout_gravity="center"
 
             android:text="Javascript"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
     </RadioGroup>
 
-    <Button
-        android:id="@+id/confirm"
-        android:layout_marginTop="100dp"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Confirmer" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="60dp"
+            android:text="Confirm"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginBottom="40dp" />
+    </LinearLayout>
 
 
 </LinearLayout>

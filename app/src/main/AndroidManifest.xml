@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/deskguys_icone"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/deskguys_icone_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyJobApp">
         <activity android:name=".activity_location"></activity>

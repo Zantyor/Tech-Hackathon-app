@@ -1,18 +1,21 @@
 package com.example.myjobapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 
 public class LocationActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,13 @@ public class LocationActivity extends AppCompatActivity {
         String languageValue = getLanguage.getStringExtra("choosenLanguage");
 
         buttonGetLocation.setEnabled(false);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3498db")));
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         locationField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -48,7 +58,7 @@ public class LocationActivity extends AppCompatActivity {
             }
         });
 
-        buttonGetLocation.setOnClickListener(new View.OnClickListener(){
+        buttonGetLocation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String getLocation = locationField.getText().toString();
                 Intent intentToResult = new Intent(LocationActivity.this, JobListActivity.class);
@@ -57,6 +67,18 @@ public class LocationActivity extends AppCompatActivity {
                 startActivity(intentToResult);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -1,15 +1,19 @@
 package com.example.myjobapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,21 +29,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class JobListActivity extends AppCompatActivity {
-    String coco = "coco";
-    //Valeur test
     String language;
     String location;
-
+    int resultCount;
     ListView listView;
     JSONObject currentObject;
     ArrayList<String> arrayList = new ArrayList<String>();
     ArrayAdapter<String> arrayAdapter;
-    /*Intent resultIntent = new Intent(JobListActivity.this,MainActivity.class);*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_list);
+
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3498db")));
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         Intent getLanguage = getIntent();
         String languageValue = getLanguage.getStringExtra("choosenLanguage");
@@ -53,8 +63,9 @@ public class JobListActivity extends AppCompatActivity {
         }
 
         listView = findViewById(R.id.resultList);
-        getJobsList(language,location);
+        getJobsList(language, location);
     }
+
 
     private void getJobsList(String language, String location) {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -66,27 +77,44 @@ public class JobListActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONArray response) {
-                        for (int i=0; i<response.length(); i++) {
+                        if (arrayList != null) {
+                            arrayList.clear();
+                        }
+                        for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject object = response.getJSONObject(i);
                                 currentObject = object;
                                 String title = object.getString("title");
                                 String location = object.getString("location");
-                                arrayList.add(title + "\n & location :" + location);
+                                arrayList.add("Title : " + title + "\n" + "Location : " + location);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                             arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
-                                    android.R.layout.simple_list_item_1,arrayList);
+                                    android.R.layout.simple_list_item_1, arrayList);
                             listView.setAdapter(arrayAdapter);
-                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    Toast.makeText(getApplicationContext(),arrayList.get(position),Toast.LENGTH_SHORT).show();
-                                    /*resultIntent.put("offer", currentObject);*/
-                                }
-                            });
                         }
+                        resultCount = response.length();
+                        TextView ResultView = findViewById(R.id.resultView);
+                        if (resultCount == 1) {
+                            ResultView.setText(resultCount + " result found");
+                        } else {
+                            ResultView.setText(resultCount + " results found");
+
+                        }
+
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent resultIntent = new Intent(JobListActivity.this, ShowJobActivity.class);
+                                try {
+                                    resultIntent.putExtra("selectedJobObject", response.getJSONObject(position).toString());
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                startActivity(resultIntent);
+                            }
+                        });
                     }
                 }, new Response.ErrorListener() {
 
@@ -98,6 +126,18 @@ public class JobListActivity extends AppCompatActivity {
                 });
 
         queue.add(jsonArrayRequest);
-
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

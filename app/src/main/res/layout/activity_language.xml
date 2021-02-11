@@ -7,14 +7,17 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".LanguageActivity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose your language:"
+        android:fontFamily="@font/lato_bold"
         android:gravity="center"
+        android:padding="40dp"
+        android:text="@string/choose_your_language"
         android:textSize="25dp"
-        android:textStyle="bold"
-        android:padding="40dp"></TextView>
+        android:textStyle="bold">
+    </TextView>
 
     <RadioGroup
         android:id="@+id/radioChoice"
@@ -29,7 +32,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="Ruby"
+            android:text="@string/ruby"
             android:textSize="20dp"
             />
 
@@ -39,7 +42,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="Python"
+            android:text="@string/python"
             android:textSize="20dp"/>
 
         <RadioButton
@@ -48,7 +51,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="PHP"
+            android:text="@string/php"
             android:textSize="20dp"/>
 
         <RadioButton
@@ -57,7 +60,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="Javascript"
+            android:text="@string/javascript"
             android:textSize="20dp"/>
     </RadioGroup>
 
@@ -72,10 +75,12 @@
             android:id="@+id/confirm"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="60dp"
-            android:text="Confirm"
             android:layout_gravity="center_horizontal|center"
-            android:layout_marginBottom="40dp" />
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="#3498db"
+            android:paddingHorizontal="60dp"
+            android:text="@string/confirm"
+            app:icon="@android:drawable/ic_input_add" />
     </LinearLayout>
 
 

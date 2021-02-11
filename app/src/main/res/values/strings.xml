@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">DeskGuys</string>
     <string name="text_location">Where do you want to work?</string>
+    <string name="il_semble_qu_il_y_ait_eu_une_erreur">Il semble qu\'il y ait eu une erreur :\'(</string>
+    <string name="oups">Oups !</string>
+    <string name="choose_your_language">Choose your language:</string>
+    <string name="ruby">Ruby</string>
+    <string name="python">Python</string>
+    <string name="php">PHP</string>
+    <string name="javascript">Javascript</string>
+    <string name="confirm">Confirm</string>
+    <string name="start_searching">Start Searching</string>
 </resources>

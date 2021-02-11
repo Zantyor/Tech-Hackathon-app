@@ -4,26 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationActivity"
-    android:orientation="vertical">
+    android:backgroundTint="#8BC34A"
+    android:orientation="vertical"
+    tools:context=".LocationActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_location"
+        android:fontFamily="@font/lato_bold"
         android:gravity="center"
+        android:padding="40dp"
+        android:text="@string/text_location"
         android:textSize="25dp"
-        android:textStyle="bold"
-        android:padding="40dp" />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/locationField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="300dp"
-        android:textSize="20dp"
+        android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:layout_gravity="center" />
+        android:width="300dp"
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,10 +38,12 @@
             android:id="@+id/buttonGetLocation"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="60dp"
-            android:text="Confirm"
             android:layout_gravity="center_horizontal|center"
-            android:layout_marginBottom="40dp" />
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="#3498db"
+            android:paddingHorizontal="60dp"
+            android:text="@string/confirm"
+            app:icon="@android:drawable/ic_input_add" />
     </LinearLayout>
 
 </LinearLayout>

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
@@ -19,36 +19,53 @@
                 android:id="@+id/companyLogo"
                 android:src="@drawable/logo_small">
             </ImageView>
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/title"
-                android:gravity="center"
-                android:text="Oups !"
-                >
-            </TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/companyLocation"
-                android:gravity="center">
+                android:paddingLeft="36dp"
+                android:paddingRight="36dp"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title"
+                    android:gravity="center"
+                    android:text="Oups !"
+                    >
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/companyLocation"
+                    android:gravity="center">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/creationDate"
+                    android:gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/htmlDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Il semble qu'il y ait eu une erreur :'(">
+                </TextView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/hr"
+                    android:layout_marginBottom="12dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/applyContent"
+                    >
+                </TextView>
+            </LinearLayout>
 
-            </TextView>
-            <TextView
-                android:id="@+id/htmlDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Il semble qu'il y ait eu une erreur :'("
-                android:gravity="center">
-            </TextView>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/applyButton">
-
-            </Button>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

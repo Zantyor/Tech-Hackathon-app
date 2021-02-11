@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -42,6 +44,7 @@ public class JobListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_job_list);
 
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3498db")));
         if (actionBar != null) {
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -82,7 +85,7 @@ public class JobListActivity extends AppCompatActivity {
                                 currentObject = object;
                                 String title = object.getString("title");
                                 String location = object.getString("location");
-                                arrayList.add(title + "\n & location :" + location);
+                                arrayList.add("Title : " + title + "\n" + "Location : " + location);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

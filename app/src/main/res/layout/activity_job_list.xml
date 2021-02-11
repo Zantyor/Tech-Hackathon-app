@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JobListActivity">
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".LanguageActivity">
 
-    <ListView
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:padding="40dp"
+        android:text="Result :"
+        android:textSize="25dp"
+        android:textStyle="bold"></TextView>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/resultList"
-        android:divider="@drawable/divider"
-        android:dividerHeight="2dp"
-        >
-    </ListView>
-</RelativeLayout>
+        tools:context=".JobListActivity">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/resultList"
+            android:divider="@drawable/divider"
+            android:dividerHeight="2dp"
+            >
+        </ListView>
+    </RelativeLayout>
+</LinearLayout>

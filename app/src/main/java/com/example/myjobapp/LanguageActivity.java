@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,7 @@ public class LanguageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_language);
 
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3498db")));
         if (actionBar != null) {
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -72,7 +75,6 @@ public class LanguageActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             onBackPressed();  return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

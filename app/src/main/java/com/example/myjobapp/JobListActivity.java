@@ -27,8 +27,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class JobListActivity extends AppCompatActivity {
-    String coco = "coco";
-    //Valeur test
     String language;
     String location;
 
@@ -36,7 +34,7 @@ public class JobListActivity extends AppCompatActivity {
     JSONObject currentObject;
     ArrayList<String> arrayList = new ArrayList<String>();
     ArrayAdapter<String> arrayAdapter;
-    /*Intent resultIntent = new Intent(JobListActivity.this,MainActivity.class);*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +59,9 @@ public class JobListActivity extends AppCompatActivity {
         }
 
         listView = findViewById(R.id.resultList);
-        getJobsList(language,location);
+        getJobsList(language, location);
     }
+
 
     private void getJobsList(String language, String location) {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -74,7 +73,10 @@ public class JobListActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONArray response) {
-                        for (int i=0; i<response.length(); i++) {
+                        if (arrayList != null) {
+                            arrayList.clear();
+                        }
+                        for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject object = response.getJSONObject(i);
                                 currentObject = object;
@@ -85,16 +87,21 @@ public class JobListActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
-                                    android.R.layout.simple_list_item_1,arrayList);
+                                    android.R.layout.simple_list_item_1, arrayList);
                             listView.setAdapter(arrayAdapter);
-                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    Toast.makeText(getApplicationContext(),arrayList.get(position),Toast.LENGTH_SHORT).show();
-                                    /*resultIntent.put("offer", currentObject);*/
-                                }
-                            });
                         }
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent resultIntent = new Intent(JobListActivity.this, ShowJobActivity.class);
+                                try {
+                                    resultIntent.putExtra("selectedJobObject", response.getJSONObject(position).toString());
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                startActivity(resultIntent);
+                            }
+                        });
                     }
                 }, new Response.ErrorListener() {
 
@@ -106,7 +113,6 @@ public class JobListActivity extends AppCompatActivity {
                 });
 
         queue.add(jsonArrayRequest);
-
     }
 
     @Override

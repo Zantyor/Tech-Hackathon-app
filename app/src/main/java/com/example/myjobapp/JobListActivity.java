@@ -85,7 +85,7 @@ public class JobListActivity extends AppCompatActivity {
                                 currentObject = object;
                                 String title = object.getString("title");
                                 String location = object.getString("location");
-                                arrayList.add(title + "\n & location :" + location);
+                                arrayList.add("Title : " + title + "\n" + "Location : " + location);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

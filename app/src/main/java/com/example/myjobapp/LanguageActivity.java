@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 public class LanguageActivity extends AppCompatActivity {
     String choosenLanguage;
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,7 @@ public class LanguageActivity extends AppCompatActivity {
 
         Button btnValidLanguage = findViewById(R.id.confirm);
         btnValidLanguage.setEnabled(false);
-        btnValidLanguage.setOnClickListener(new View.OnClickListener(){
+        btnValidLanguage.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -39,10 +40,9 @@ public class LanguageActivity extends AppCompatActivity {
             }
         });
 
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId){
+                switch (checkedId) {
                     case R.id.python:
                         onLanguageSelection("python");
                         break;
@@ -63,7 +63,7 @@ public class LanguageActivity extends AppCompatActivity {
 
     public void onLanguageSelection(String language) {
         choosenLanguage = language;
-        intent = new Intent(LanguageActivity.this , LocationActivity.class);
+        intent = new Intent(LanguageActivity.this, LocationActivity.class);
         intent.putExtra("choosenLanguage", choosenLanguage);
 
     }
@@ -73,7 +73,8 @@ public class LanguageActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            onBackPressed();  return true;
+            onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

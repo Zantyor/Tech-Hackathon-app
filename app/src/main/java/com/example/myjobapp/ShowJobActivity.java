@@ -9,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +16,6 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class ShowJobActivity extends AppCompatActivity {
 
@@ -41,6 +39,7 @@ public class ShowJobActivity extends AppCompatActivity {
             Picasso.get().load(jObj.getString("company_logo")).into(imageView);
             titleView.setText(jObj.getString("title"));
             locationView.setText(jObj.getString("location"));
+            dateView.setText(jObj.getString("created_at"));
             htmlView.setText(Html.fromHtml(jObj.getString("description")));
             applyView.setText(Html.fromHtml(jObj.getString("how_to_apply")));
         } catch (JSONException e) {
@@ -61,7 +60,8 @@ public class ShowJobActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            onBackPressed();  return true;
+            onBackPressed();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

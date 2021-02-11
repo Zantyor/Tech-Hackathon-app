@@ -58,7 +58,7 @@ public class LocationActivity extends AppCompatActivity {
             }
         });
 
-        buttonGetLocation.setOnClickListener(new View.OnClickListener(){
+        buttonGetLocation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String getLocation = locationField.getText().toString();
                 Intent intentToResult = new Intent(LocationActivity.this, JobListActivity.class);
@@ -74,7 +74,8 @@ public class LocationActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            onBackPressed();  return true;
+            onBackPressed();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

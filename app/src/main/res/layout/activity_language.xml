@@ -14,9 +14,10 @@
         android:fontFamily="@font/lato_bold"
         android:gravity="center"
         android:padding="40dp"
-        android:text="Choose your language:"
+        android:text="@string/choose_your_language"
         android:textSize="25dp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold">
+    </TextView>
 
     <RadioGroup
         android:id="@+id/radioChoice"
@@ -31,7 +32,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="Ruby"
+            android:text="@string/ruby"
             android:textSize="20dp"
             />
 
@@ -41,7 +42,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="Python"
+            android:text="@string/python"
             android:textSize="20dp"/>
 
         <RadioButton
@@ -50,7 +51,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="PHP"
+            android:text="@string/php"
             android:textSize="20dp"/>
 
         <RadioButton
@@ -59,7 +60,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
 
-            android:text="Javascript"
+            android:text="@string/javascript"
             android:textSize="20dp"/>
     </RadioGroup>
 
@@ -78,7 +79,7 @@
             android:layout_marginBottom="40dp"
             android:backgroundTint="#3498db"
             android:paddingHorizontal="60dp"
-            android:text="Confirm"
+            android:text="@string/confirm"
             app:icon="@android:drawable/ic_input_add" />
     </LinearLayout>
 

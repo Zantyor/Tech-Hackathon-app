@@ -9,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,8 +27,10 @@ public class ShowJobActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.companyLogo);
         TextView titleView = findViewById(R.id.title);
         TextView locationView = findViewById(R.id.companyLocation);
+        TextView dateView = findViewById(R.id.creationDate);
         TextView htmlView = findViewById(R.id.htmlDescription);
-        Button applyButton = findViewById(R.id.applyButton);
+        TextView applyView = findViewById(R.id.applyContent);
+
         Intent intent = getIntent();
 
         String jsonString = intent.getStringExtra("selectedJobObject");
@@ -38,8 +39,9 @@ public class ShowJobActivity extends AppCompatActivity {
             Picasso.get().load(jObj.getString("company_logo")).into(imageView);
             titleView.setText(jObj.getString("title"));
             locationView.setText(jObj.getString("location"));
+            dateView.setText(jObj.getString("created_at"));
             htmlView.setText(Html.fromHtml(jObj.getString("description")));
-            applyButton.setText(Html.fromHtml(jObj.getString("how_to_apply")));
+            applyView.setText(Html.fromHtml(jObj.getString("how_to_apply")));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -58,7 +60,8 @@ public class ShowJobActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            onBackPressed();  return true;
+            onBackPressed();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
